@@ -1,6 +1,7 @@
 #include "snake.h"
 #include <cmath>
 #include <iostream>
+#include <SDL_ttf.h>
 
 void Snake::Update() {
   SDL_Point prev_cell{
@@ -16,6 +17,7 @@ void Snake::Update() {
   // cell.
   if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
     UpdateBody(current_cell, prev_cell);
+    
   }
 }
 
@@ -59,6 +61,14 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   for (auto const &item : body) {
     if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
       alive = false;
+      std::cout<<"snakeeeeee ne kataaaaaaa"<<std::endl;
+      TTF_Font* Sans = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 50); 
+
+      SDL_Color White = {255, 255, 255};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+
+      SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "Game Over", White);
+      TTF_CloseFont(Sans);
+    TTF_Quit();
     }
   }
 }

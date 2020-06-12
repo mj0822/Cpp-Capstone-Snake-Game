@@ -6,25 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/renderer.cpp
-renderer.h
-/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/renderer.h
-iostream
--
-string
--
-SDL_ttf.h
--
-sstream
--
-
-/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/renderer.h
-vector
--
-SDL.h
-/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/SDL.h
+/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/snake.cpp
 snake.h
 /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/snake.h
+cmath
+-
+iostream
+-
 SDL_ttf.h
 -
 
