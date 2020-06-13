@@ -6,8 +6,8 @@
 
 #IncludeRegexTransform: 
 
-/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/main.cpp
-iostream
+/home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/starter.cpp
+SDL.h
 -
 starter.h
 /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/starter.h
