@@ -99,8 +99,11 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o
  /usr/include/SDL2/begin_code.h
  /usr/include/SDL2/close_code.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o
+ /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/controller.h
+ /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/game.h
  /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/main.cpp
- /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/starter.h
+ /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/renderer.h
+ /home/mrunalj0822/udacity/Cpp-Capston-Snake-Game/src/snake.h
  /usr/include/SDL2/SDL.h
  /usr/include/SDL2/SDL_assert.h
  /usr/include/SDL2/SDL_atomic.h

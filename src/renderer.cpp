@@ -40,19 +40,36 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
- else
-     {
-       TTF_Font* Sans = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 50); 
-
-      SDL_Color White = {255, 255, 255};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
-
-      SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "put your text here", White);
-     }
                
 }
+void Renderer::UpdateWindowTitle(int score, int fps) {
+  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+  SDL_SetWindowTitle(sdl_window, title.c_str());
+while(){
+  TTF_Font* Sans = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16); 
+  
+  if (Sans == NULL){  //check if font loaded or not because load nahi hua to error nahi dega
+  }
 
+  SDL_Color White = {255, 255, 255};  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+
+  SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, "put your text here", White);
+
+  SDL_Texture* texture = SDL_CreateTextureFromSurface(sdl_renderer, surfaceMessage);
+  int texW = 0;  //automatically be changed by below func
+  int texH = 0;
+  SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);  //find the size required to save display the text
+  SDL_Rect dstrect = { 0, 0, texW, texH };  //auto-rectangele to display above text
+
+  SDL_RenderCopy(sdl_renderer, texture, NULL, &dstrect);
+  SDL_RenderPresent(sdl_renderer);
+  }
+}
 
 Renderer::~Renderer() {
+
+  //Destroy the renderer created above
+  SDL_DestroyRenderer(sdl_renderer);
   SDL_DestroyWindow(sdl_window);
   SDL_Quit();
   TTF_CloseFont(Sans);
@@ -98,11 +115,10 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
-  SDL_SetWindowTitle(sdl_window, title.c_str());
 
- // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
+
+ 
+   // as TTF_RenderText_Solid could only be used on SDL_Surface then you have to create the surface first
 // SDL_Texture* text_texture;
 
 // text_texture = SDL_CreateTextureFromSurface( sdl_renderer, surfaceMessage );
@@ -113,4 +129,3 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
 // SDL_DestroyTexture( text_texture );
 // SDL_FreeSurface( surfaceMessage );
 
-}
