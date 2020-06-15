@@ -45,7 +45,6 @@ Renderer::Renderer(const std::size_t screen_width,
 void Renderer::UpdateWindowTitle(int score, int fps) {
   std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
-while(){
   TTF_Font* Sans = TTF_OpenFont("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16); 
   
   if (Sans == NULL){  //check if font loaded or not because load nahi hua to error nahi dega
@@ -59,20 +58,26 @@ while(){
   int texW = 0;  //automatically be changed by below func
   int texH = 0;
   SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);  //find the size required to save display the text
+  std::cout<<"texture"<<std::endl;
   SDL_Rect dstrect = { 0, 0, texW, texH };  //auto-rectangele to display above text
 
   SDL_RenderCopy(sdl_renderer, texture, NULL, &dstrect);
+  std::cout<<"Rendere copy"<<std::endl;
   SDL_RenderPresent(sdl_renderer);
-  }
+  std::cout<<"Renderer Present"<<std::endl;
 }
 
 Renderer::~Renderer() {
 
   //Destroy the renderer created above
   SDL_DestroyRenderer(sdl_renderer);
+  std::cout<<"Rendere Destroy"<<std::endl;
   SDL_DestroyWindow(sdl_window);
+  std::cout<<"Destroy Window"<<std::endl;
   SDL_Quit();
+  std::cout<<"SDL_QUIT"<<std::endl;
   TTF_CloseFont(Sans);
+  std::cout<<"Close Font"<<std::endl;
   TTF_Quit();
   std::cout<<"TTF QUIT"<<std::endl;
 
